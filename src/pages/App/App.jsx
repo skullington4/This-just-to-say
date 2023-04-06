@@ -18,7 +18,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/notes/new" element={<NewNotePage />} />
-              <Route path="/note" element={<NotesPage />} />
+              <Route path="/notes" element={<NotesPage />} />
             </Routes>
           </>
           :
