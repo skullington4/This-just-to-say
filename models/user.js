@@ -16,6 +16,16 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  username: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    required: true
+  },
+  freinds: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
   }
 }, {
   timestamps: true,
