@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as friendsService from '../../utilities/friends-service';
 
-export default function NotesPage({ user, setUser }) {
+export default function FriendsListPage({ user, setUser }) {
   const [friends, setFriends] = useState([]);
 
   useEffect(function() {
@@ -15,6 +15,7 @@ export default function NotesPage({ user, setUser }) {
   return (
     <>
       <h1>Friends Page</h1>
+      <a href="/friends/new">Add Friend</a>
       { friends ?
         friends.map(friend => <h3>{friend.name}</h3>)
         :

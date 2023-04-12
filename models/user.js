@@ -26,6 +26,10 @@ const userSchema = new Schema({
   freinds: {
       type: Schema.Types.ObjectId,
       ref: 'User',
+  },
+  friendRequests: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   }
 }, {
   timestamps: true,
