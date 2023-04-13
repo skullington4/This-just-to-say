@@ -11,8 +11,7 @@ export default function NewFriendPage() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    const createdNote = await notesService.createNote(note);
-    console.log(createdNote);
+    const findFriend = await notesService.createNote(note);
     setNote('');
   }
 

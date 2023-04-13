@@ -3,6 +3,7 @@ import * as friendsService from '../../utilities/friends-service';
 
 export default function FriendsListPage({ user, setUser }) {
   const [friends, setFriends] = useState([]);
+  const [newFriend, setNewFriend] = useState('');
 
   useEffect(function() {
     async function getFriends() {
