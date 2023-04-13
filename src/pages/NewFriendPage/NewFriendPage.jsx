@@ -1,8 +1,8 @@
-import NewNoteForm from "../../components/NewNoteForm/NewNoteForm";
+
 import { useState } from 'react';
 import * as friendsService from "../../utilities/friends-service"
 
-export default function NewFriendPage() {
+export default function NewFriendRequestPage() {
   const [friend, setFriend] = useState('');
 
   function handleChange(evt) {
@@ -11,8 +11,7 @@ export default function NewFriendPage() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    const findFriend = await notesService.createNote(note);
-    setNote('');
+
   }
 
 

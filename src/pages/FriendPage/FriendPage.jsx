@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 export default function FriendsPage({ friend }) {
   const [message, setMessage] = useState('');
 
@@ -12,7 +13,6 @@ export default function FriendsPage({ friend }) {
       <h3>Send a message to {friend.name}</h3>
       <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
       <button onClick={sendMessage}>Send Message</button>
-      <button onClick={onClose}>Close</button>
     </div>
   );
 }

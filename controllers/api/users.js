@@ -5,8 +5,20 @@ const bcrypt = require('bcrypt');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  getAllUsers
 };
+
+async function getAllUsers(req, res) {
+  try {
+    const users = await User.find({});
+    const allButMe = users.filter(user => user.name != req.user.name)
+    console.log(allButMe)
+    res.json(allButMe);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 async function create(req, res) {
   try {

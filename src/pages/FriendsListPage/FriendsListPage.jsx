@@ -1,5 +1,7 @@
+import { Link, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as friendsService from '../../utilities/friends-service';
+import FriendsPage from '../FriendPage/FriendPage';
 
 export default function FriendsListPage({ user, setUser }) {
   const [friends, setFriends] = useState([]);
@@ -7,7 +9,7 @@ export default function FriendsListPage({ user, setUser }) {
 
   useEffect(function() {
     async function getFriends() {
-      const friends = await friendsService.getAllFriends();
+      const friends = await friendsService.getAllUsers();
       setFriends(friends);
     }
     getFriends();
@@ -15,13 +17,11 @@ export default function FriendsListPage({ user, setUser }) {
 
   return (
     <>
-      <h1>Friends Page</h1>
-      <a href="/friends/new">Add Friend</a>
-      { friends ?
-        friends.map(friend => <h3>{friend.name}</h3>)
+      <h1>Friends List Page</h1>
+      { friends ? (
+        friends.map(friend => <h3>{friend.name}</h3>))
         :
-        <h3>No Friends Yet</h3>
-
+        (<h3>No Friends Yet</h3>)
       }
     </>
 
