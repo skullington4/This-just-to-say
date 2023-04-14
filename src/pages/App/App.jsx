@@ -22,7 +22,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/friends" element={<FriendsListPage />} />
               <Route path="/friends/:id" element={<FriendPage user={user} />} />
-              <Route path="/friends/:id/notes/:noteId/edit" element={<EditNotePage />} />
+              <Route path="/friends/:friendId/notes/:noteId/edit" element={<EditNotePage />} />
 
             </Routes>
           </>

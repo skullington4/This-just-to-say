@@ -26,9 +26,7 @@ export default function EditNotePage() {
     async function handleSubmit(evt) {
         evt.preventDefault();
         let updatedNote = await notesService.updateNote(note);
-
-        
-        navigate(`/friends/${note.from}`);
+        navigate(`/friends/${friendId}`);
     }
 
   return (
