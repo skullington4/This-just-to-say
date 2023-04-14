@@ -4,11 +4,13 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import FriendsListPage from '../FriendsListPage/FriendsListPage';
-import NewFriendRequestPage from '../NewFriendPage/NewFriendPage';
+import FriendPage from '../FriendPage/FriendPage';
 import NavBar from '../../components/NavBar/NavBar';
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+
 
   return (
     <main className="App">
@@ -18,7 +20,8 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/friends" element={<FriendsListPage />} />
-              <Route path="/friends/new" element={<NewFriendRequestPage />} />
+              <Route path="/friends/:id" element={<FriendPage />} />
+
             </Routes>
           </>
           :

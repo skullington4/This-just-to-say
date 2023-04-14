@@ -13,6 +13,7 @@ router.post('/', usersCtrl.create);
 
 router.post('/login', usersCtrl.login);
 
-router.get('/', usersCtrl.getAllUsers)
+router.get('/', usersCtrl.getAllUsers);
+router.get('/:id',  usersCtrl.getUser);
 
 module.exports = router;

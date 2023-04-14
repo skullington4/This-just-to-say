@@ -2,10 +2,13 @@ import sendRequest from "./send-request";
 const BASE_URL = '/api/notes';
 
 export function createNoteRequest(noteData) {
-    const newNote = {text: noteData}
-    return sendRequest(BASE_URL, 'POST', newNote);
+    return sendRequest(BASE_URL, 'POST', noteData);
 }
 
-export function getNotesRequest() {
-  return sendRequest(BASE_URL, 'GET');
+export function getNotesRequest(id) {
+  return sendRequest(BASE_URL + `/${id}`, 'GET');
+}
+
+export function deleteNoteRequest(id) {
+  return sendRequest(BASE_URL + `/${id}`, 'DELETE');
 }

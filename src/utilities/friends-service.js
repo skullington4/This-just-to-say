@@ -15,3 +15,11 @@ export async function getAllUsers() {
   const allUsers = await friendsAPI.getAllUsers();
   return allUsers;
 }
+
+export async function getUser(id) {
+  // const token = await usersAPI.signUp(userData);
+  // localStorage.setItem('token', token);
+  // return getUser();
+  const aUsers = await friendsAPI.getUser(id);
+  return aUsers;
+}

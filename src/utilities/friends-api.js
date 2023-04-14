@@ -14,3 +14,7 @@ export function getAllUsers() {
 
   return sendRequest(BASE_URL);
 }
+
+export function getUser(id) {
+  return sendRequest(BASE_URL + `/${id}`);
+}
