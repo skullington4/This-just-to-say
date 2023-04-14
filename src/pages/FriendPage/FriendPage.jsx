@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import * as friendsService from '../../utilities/friends-service';
 import * as notesService from '../../utilities/notes-service';
 
@@ -20,9 +20,7 @@ export default function FriendPage() {
       setFriend(aUser);
     }
     async function getNotes() {
-      console.log("id", id)
       const allNotes = await notesService.getAllNotes(id);
-      console.log(allNotes);
       setNotes(allNotes);
     }
     getUser();
@@ -47,13 +45,15 @@ export default function FriendPage() {
       <div>
         <h3>Send a message to {friend.name}</h3>
         <textarea value={note.text} onChange={(e) => setNote({...note, text:e.target.value})} />
+        
         <button onClick={sendNote}>Send Message</button>
       </div>
       <div>
       { notes.length ? (
           notes.map(note => 
-          (<div key={note.id}>{note.user} <br />
+          (<div key={note.id}>{note.user} <br /> 
             {note.text}
+            <Link to={`/friends/${friend._id}/notes/${note._id}/edit`}><h3>Edit</h3></Link>
          <button onClick={() => handleDeleteNote(note._id)}>Delete</button>
          </div>
           )))

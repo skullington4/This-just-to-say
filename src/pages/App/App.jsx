@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import FriendsListPage from '../FriendsListPage/FriendsListPage';
 import FriendPage from '../FriendPage/FriendPage';
 import NavBar from '../../components/NavBar/NavBar';
+import EditNotePage from '../EditNotePage/EditNotePage';
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/friends" element={<FriendsListPage />} />
               <Route path="/friends/:id" element={<FriendPage />} />
+              <Route path="/friends/:id/notes/:noteId/edit" element={<EditNotePage />} />
 
             </Routes>
           </>

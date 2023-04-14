@@ -5,7 +5,8 @@ module.exports = {
     create,
     index,
     getAllNotes,
-    deleteNote
+    deleteNote,
+    getNote
   };
 
 //Write a controller that finds all messages from user == req.user and from == user
@@ -25,9 +26,18 @@ async function create(req, res) {
 
 async function index(req, res) {
   try{
-    // const allNotes = await Note.find({from:req.user._id, user:req.params.id} );
-    const allNotes = await Note.find({$or:[{user:req.user._id, from:req.params.id}, {from:req.user._id, user:req.params.id} ]});
+    const allNotes = await Note.find({$or:[{user:req.user._id, from:req.params.userId}, {from:req.user._id, user:req.params.userId} ]});
     res.json(allNotes)
+  }  catch(err) {
+    console.log(err);
+    res.status(400).json(err);
+    } 
+}
+
+async function getNote(req, res) {
+  try{
+    const note = await Note.findById(req.params.id);
+    res.json(note)
   }  catch(err) {
     console.log(err);
     res.status(400).json(err);

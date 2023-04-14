@@ -11,4 +11,5 @@ router.post('/', ensureLoggedIn, notesCtrl.create);
 router.get('/', notesCtrl.index)
 
 
+
 module.exports = router;

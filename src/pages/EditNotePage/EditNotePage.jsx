@@ -1,0 +1,46 @@
+import { useParams, redirect } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import * as notesService from '../../utilities/notes-service';
+
+export default function EditNotePage() {
+    const [note, setNote] = useState({ text: ""});
+    let { friendId, noteId } = useParams();
+    
+    
+    useEffect(function() {
+        async function getSingleNote() {
+            let noteToEdit = await notesService.getSingleNote(noteId);
+      setNote(noteToEdit);
+    }
+    getSingleNote();
+  }, []);
+
+
+
+
+    function handleChange(evt) {
+        setNote({...note, [evt.target.name]: evt.target.value});
+    }
+
+    function handleSubmit(evt) {
+        evt.preventDefault();
+        
+
+        
+        return redirect(`/friends/${friendId}`);
+    }
+
+  return (
+    <>
+      
+        <h1>Edit Note Page</h1>
+        <form action="" onSubmit={handleSubmit}>
+            <label htmlFor="text">Text:
+                <input type="text" name="text" id="text" value={ note.text } onChange={handleChange} />
+            </label>
+            <input type="submit" value="Edit Note" />
+        </form>
+    </>
+
+  );
+}
