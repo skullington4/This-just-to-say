@@ -1,10 +1,11 @@
-import { useParams, redirect } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as notesService from '../../utilities/notes-service';
 
 export default function EditNotePage() {
     const [note, setNote] = useState({ text: ""});
     let { friendId, noteId } = useParams();
+    const navigate = useNavigate();
     
     
     useEffect(function() {
@@ -22,12 +23,12 @@ export default function EditNotePage() {
         setNote({...note, [evt.target.name]: evt.target.value});
     }
 
-    function handleSubmit(evt) {
+    async function handleSubmit(evt) {
         evt.preventDefault();
-        
+        let updatedNote = await notesService.updateNote(note);
 
         
-        return redirect(`/friends/${friendId}`);
+        navigate(`/friends/${friendId}`);
     }
 
   return (

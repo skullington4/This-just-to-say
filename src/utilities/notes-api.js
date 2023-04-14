@@ -18,5 +18,5 @@ export async function getANote(id) {
 }
 
 export async function update(noteObject) {
-  return await sendRequest(`${BASE_URL}/update`, 'POST', noteObject);
+  return await sendRequest(`${BASE_URL}/update`, 'PUT', noteObject);
 }

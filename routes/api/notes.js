@@ -14,4 +14,6 @@ router.get('/:id', notesCtrl.getNote);
 
 router.delete('/:id', notesCtrl.deleteNote);
 
+router.put('/update', notesCtrl.updateNote)
+
 module.exports = router;
