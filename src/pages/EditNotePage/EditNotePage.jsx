@@ -28,7 +28,7 @@ export default function EditNotePage() {
         let updatedNote = await notesService.updateNote(note);
 
         
-        navigate(`/friends/${friendId}`);
+        navigate(`/friends/${note.from}`);
     }
 
   return (
