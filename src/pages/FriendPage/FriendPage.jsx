@@ -4,7 +4,7 @@ import * as friendsService from '../../utilities/friends-service';
 import * as notesService from '../../utilities/notes-service';
 
 
-export default function FriendPage() {
+export default function FriendPage({ user }) {
   const { id } = useParams();
   const [note, setNote] = useState({
     text: '',
@@ -51,11 +51,20 @@ export default function FriendPage() {
       <div>
       { notes.length ? (
           notes.map(note => 
-          (<div key={note.id}>{note.user} <br /> 
-            {note.text}
-            <Link to={`/friends/${friend._id}/notes/${note._id}/edit`}><h3>Edit</h3></Link>
-         <button onClick={() => handleDeleteNote(note._id)}>Delete</button>
-         </div>
+          (<div key={note.id}>
+              { note.from == friend._id ? 
+              <div>{friend.name}</div>
+              :
+              <div>{user.name}</div>
+              }
+
+              {note.text}
+              <div>
+                  <Link to={`/friends/${friend._id}/notes/${note._id}/edit`}><h3>Edit</h3></Link>
+                  <button onClick={() => handleDeleteNote(note._id)}>Delete</button>
+              </div>
+            <br /> <br /> <br /> <br /> <br /> 
+          </div>
           )))
           :
           (<h3>No Notes Yet</h3>)
