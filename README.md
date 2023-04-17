@@ -1,6 +1,6 @@
 # This-just-to-say
 
-This is a messaging platform that allows users to send messages to each other whenever they want. 
+This is a messaging platform that allows users to send messages to each other. 
 
 
 Technologies used: 
@@ -25,3 +25,4 @@ Add notifications
 Add friends list
 Add search friends
 Add guided questions to help prompt thoughts
+Add a send a message to a future date
