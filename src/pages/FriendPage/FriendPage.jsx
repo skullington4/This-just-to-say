@@ -61,11 +61,13 @@ export default function FriendPage({ user }) {
               {note.text}
               <div>
                 { user._id === note.from ?
-                <Link to={`/friends/${friend._id}/notes/${note._id}/edit`}><button>Edit</button></Link>
+                <div>
+                  <Link to={`/friends/${friend._id}/notes/${note._id}/edit`}><button>Edit</button></Link>
+                  <button onClick={() => handleDeleteNote(note._id)}>Delete</button>
+                </div>
                 :
                   <h3></h3>
                 }
-                  <button onClick={() => handleDeleteNote(note._id)}>Delete</button>
               </div>
             <br /> <br /> <br /> <br /> <br /> 
           </div>
