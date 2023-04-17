@@ -1,5 +1,8 @@
 # This-just-to-say
 
+https://just-to-say.herokuapp.com
+Trello: https://trello.com/b/IDY8qRJY/project-4
+
 This is a messaging platform that allows users to send messages to each other. 
 
 
